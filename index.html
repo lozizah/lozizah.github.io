@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>CG II - AC2</title>
+    <title>FINAL</title>
 
     <!-- Babylon.jss -->
     <script src="https://code.jquery.com/pep/0.4.2/pep.min.js"></script>
@@ -84,9 +84,9 @@
             //  skyboxMaterial.specularColor = BABYLON.Color3.Black();
             //  skybox.material = skyboxMaterial;
 
-            // PlataformaInicialGitatoria = createGround(scene);
-             Plataforma1Inferior = createGround1(scene, 0, -7, 0, -17, 0, 0)
-            // Plataforma2Inferior = createGround2(scene, 0, -13, 4, 0, -8, 13);
+            PlataformaInicialGitatoria = createGround(scene);
+            Plataforma1Inferior = createGround1(scene, 0, -7, 0, -17, 0, 0)
+            Plataforma2Inferior = createGround2(scene, 0, -30, 35, 0, 0, 0);
             // Plataforma3Inferior = createGround1(scene, 0, -25, -10, -17, -22, 0);
 
 
@@ -95,7 +95,7 @@
             // plataforma3Superior = createGround1(scene, -80, -10, -20, -28, -7, -80);
             // Plataform4Superior = createGround2(scene, -80, -13, -2, -80, -9, 7);
 
-            // PlataformaMovelInferior = createPlataformaMovel(scene, -7, -27, 10, -17, -22);
+            PlataformaMovelInferior = createPlataformaMovel(scene, -7, -27, 10, -17, -22);
             // PlataformaesquerdaMovelInferior = createPlataformaMovel2(scene, 18, -20, -5, -17, -22);
 
             // plataforma1 = plataformaSuperior(scene, -80, 23, 15);
@@ -307,7 +307,7 @@
                 ground1.position.x = posx;
                 ground1.position.y = posy;
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
-                groundMat.diffuseTexture = new BABYLON.Texture("textures/rosa.jpg", scene);
+                groundMat.diffuseTexture = new BABYLON.Texture("textures/stones-texture.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
                 ground1.material = groundMat;
                 ground1.physicsImpostor = new BABYLON.PhysicsImpostor(ground1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
@@ -450,52 +450,22 @@
 
             function createGround2(scene, posx, posy, posz, pos1x, pos1y, pos1z) {
                 var ground1 = BABYLON.Mesh.CreateBox("box3", 10, scene);
-                var ground2 = BABYLON.Mesh.CreateBox("box3", 10, scene);
-                var bare = BABYLON.Mesh.CreateBox("box3", 10, scene);
-                var bard = BABYLON.Mesh.CreateBox("box3", 10, scene);
-
-                ground1.scaling = new BABYLON.Vector3(1, 0.1, 2);
-                ground2.scaling = new BABYLON.Vector3(1, 0.5, 0.1);
+                ground1.scaling = new BABYLON.Vector3(0.5, 0.1, 7);
 
 
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
                 groundMat.diffuseTexture = new BABYLON.Texture("textures/stones-texture.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
                 ground1.material = groundMat;
-                ground2.material = groundMat;
 
                 ground1.position.z = posz;
                 ground1.position.y = posy;
                 ground1.position.x = posx;
 
-                ground2.position.z = pos1z;
-                ground2.position.y = pos1y;
-                ground2.position.x = pos1x;
-
-
-                //barreira esquerda
-                bare.scaling = new BABYLON.Vector3(0.1, 0.2, 2);
-                bare.position.z = posz;
-                bare.position.y = posy + 0.6;
-                bare.position.x = posx - 5;
-                bare.physicsImpostor = new BABYLON.PhysicsImpostor(bare, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
-                bare.material = groundMat;
-
-                //barreira direita
-                bard.scaling = new BABYLON.Vector3(0.1, 0.2, 2);
-                bard.position.z = posz;
-                bard.position.y = posy + 0.6;
-                bard.position.x = posx + 5;
-                bard.physicsImpostor = new BABYLON.PhysicsImpostor(bard, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
-                bard.material = groundMat;
-
                 ground1.physicsImpostor = new BABYLON.PhysicsImpostor(ground1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
-                ground2.physicsImpostor = new BABYLON.PhysicsImpostor(ground2, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
 
                 newMeshes = new BABYLON.Mesh("oi2", scene);
                 newMeshes.addChild(ground1);
-                newMeshes.addChild(bard);
-                newMeshes.addChild(bare);
 
             }
 
