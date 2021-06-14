@@ -84,7 +84,7 @@
             //  skyboxMaterial.specularColor = BABYLON.Color3.Black();
             //  skybox.material = skyboxMaterial;
 
-            PlataformaInicialGitatoria = createGround(scene);
+            //PlataformaInicialGitatoria = createGround(scene);
             Plataforma1Inferior = createGround1(scene, 0, -7, 0, -17, 0, 0)
             Plataforma2Inferior = createGround2(scene, 0, -30, 35, 0, 0, 0);
             // Plataforma3Inferior = createGround1(scene, 0, -25, -10, -17, -22, 0);
@@ -95,7 +95,7 @@
             // plataforma3Superior = createGround1(scene, -80, -10, -20, -28, -7, -80);
             // Plataform4Superior = createGround2(scene, -80, -13, -2, -80, -9, 7);
 
-            PlataformaMovelInferior = createPlataformaMovel(scene, -7, -27, 10, -17, -22);
+            PlataformaMovelInferior = createPlataformaMovel(scene, -7, -31, -10, -17, -22);
             // PlataformaesquerdaMovelInferior = createPlataformaMovel2(scene, 18, -20, -5, -17, -22);
 
             // plataforma1 = plataformaSuperior(scene, -80, 23, 15);
@@ -338,10 +338,8 @@
                 groundMat.diffuseTexture.hasAlpha = true;
 
                 var ground1 = BABYLON.Mesh.CreateBox("box2", 10, scene);
-                var ground2 = BABYLON.Mesh.CreateBox("box3", 10, scene);
-                var ground3 = BABYLON.Mesh.CreateBox("box4", 10, scene);
-                var ground4 = BABYLON.Mesh.CreateBox("box5", 10, scene);
-                var ground5 = BABYLON.Mesh.CreateBox("box6", 10, scene);
+                //var ground4 = BABYLON.Mesh.CreateBox("box5", 10, scene);
+                //var ground5 = BABYLON.Mesh.CreateBox("box6", 10, scene);
 
                 ground1.scaling = new BABYLON.Vector3(2, 0.1, 2.56);
                 ground1.position.z = posz - 0.5;
@@ -349,44 +347,8 @@
                 ground1.position.y = posy;
                 ground1.physicsImpostor = new BABYLON.PhysicsImpostor(ground1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
                 ground1.material = groundMat;
-
-
-                // ground2.scaling = new BABYLON.Vector3(2, 0.8, 0.1);
-                ground2.scaling = new BABYLON.Vector3(2, 0.1, 0.1);
-                ground2.physicsImpostor = new BABYLON.PhysicsImpostor(ground2, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
-                ground2.position.z = 23;
-                ground2.position.y = -26.5;
-                ground2.position.x = 18;
-                ground2.material = groundMat;
-
-                ground3.scaling = new BABYLON.Vector3(2, 0.1, 0.1);
-                ground3.position.z = -3.5;
-                ground3.position.y = -26.8;
-                ground3.position.x = 18;
-                ground3.physicsImpostor = new BABYLON.PhysicsImpostor(ground3, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
-                ground3.material = groundMat;
-
-                ground4.scaling = new BABYLON.Vector3(0.1, 0.1, 2.5);
-                ground4.position.z = 11;
-                ground4.position.y = -26.8;
-                ground4.position.x = 8.5;
-                ground4.physicsImpostor = new BABYLON.PhysicsImpostor(ground4, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
-                ground4.material = groundMat;
-
-                ground5.scaling = new BABYLON.Vector3(0.1, 0.1, 2.5);
-                ground5.position.z = 11;
-                ground5.position.y = -26.8;
-                ground5.position.x = 27.5;
-                ground5.physicsImpostor = new BABYLON.PhysicsImpostor(ground5, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
-                ground5.material = groundMat;
-
-
                 newMeshes = new BABYLON.Mesh("virei", scene);
                 newMeshes.addChild(ground1);
-                newMeshes.addChild(ground2);
-                newMeshes.addChild(ground3);
-                newMeshes.addChild(ground4);
-                newMeshes.addChild(ground5);
             }
 
             function createPlataformaMovel2(scene, posx, posy, posz, pos1z, pos1y) {
