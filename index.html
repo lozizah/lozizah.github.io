@@ -82,6 +82,7 @@
             Plataforma4 = createGround2(scene, 0, -76, 35, 0, 0, 0);
 
             Plataforma5 = createPlataformaMovel(scene, -7, -31, -10, -17, -22);
+            Plataforma6 = createPlataformaMovel(scene, -7, -65, -10, -17, -22);
 
             Plataforma6 = createElevetor(scene, -22, -95, 11);
 
@@ -143,8 +144,9 @@
             groundMat.diffuseTexture.hasAlpha = true;
 
             var ground1 = BABYLON.Mesh.CreateBox("box2", 10, scene);
+            var ground3 = BABYLON.Mesh.CreateBox("box4", 10, scene);
             //var ground4 = BABYLON.Mesh.CreateBox("box5", 10, scene);
-            //var ground5 = BABYLON.Mesh.CreateBox("box6", 10, scene);
+            var ground5 = BABYLON.Mesh.CreateBox("box6", 10, scene);
 
             ground1.scaling = new BABYLON.Vector3(2, 0.1, 3);
             ground1.position.z = posz + 20;
@@ -152,9 +154,25 @@
             ground1.position.y = posy - 10;
             ground1.physicsImpostor = new BABYLON.PhysicsImpostor(ground1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
             ground1.material = groundMat;
+
+            ground3.scaling = new BABYLON.Vector3(2, 0.1, 0.1);
+            ground3.position.z = posz + 5;
+            ground3.position.y = posy - 8;
+            ground3.position.x = 14;
+            ground3.physicsImpostor = new BABYLON.PhysicsImpostor(ground3, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
+            ground3.material = groundMat;
+
+            ground5.scaling = new BABYLON.Vector3(0.1, 0.2, 2.5);
+            ground5.position.z = posz + 20;
+            ground5.position.y = posy - 8;
+            ground5.position.x = 24.5;
+            ground5.physicsImpostor = new BABYLON.PhysicsImpostor(ground5, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
+            ground5.material = groundMat;
+
             newMeshes = new BABYLON.Mesh("plataforma", scene);
             newMeshes.addChild(ground1);
-
+            newMeshes.addChild(ground3);
+            newMeshes.addChild(ground5);
             }
 
             function createElevetor(scene, x, y, z) {
