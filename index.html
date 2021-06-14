@@ -114,7 +114,7 @@
             function plataformaSuperior(scene, x, y, z) {
 
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
-                groundMat.diffuseTexture = new BABYLON.Texture("textures/stones-texture.jpg", scene);
+                groundMat.diffuseTexture = new BABYLON.Texture("textures/branca.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
 
                 var ground = BABYLON.Mesh.CreateBox("box1", 10, scene);
@@ -153,7 +153,7 @@
                 ground3.material = groundMat;
 
 
-                newMeshes = new BABYLON.Mesh("oi2", scene);
+                newMeshes = new BABYLON.Mesh("gangorra2", scene);
                 newMeshes.addChild(ground);
                 newMeshes.addChild(ground1);
                 newMeshes.addChild(ground2);
@@ -165,7 +165,7 @@
                 ground.scaling = new BABYLON.Vector3(1, 0.1, 0.5);
 
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
-                groundMat.diffuseTexture = new BABYLON.Texture("textures/stones-texture.jpg", scene);
+                groundMat.diffuseTexture = new BABYLON.Texture("textures/preta.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
                 ground.material = groundMat;
 
@@ -302,16 +302,16 @@
 
             function createGround1(scene, posx, posy, posz, pos1z, pos1y, pos1x) {
                 var ground1 = BABYLON.Mesh.CreateBox("box2", 10, scene);
-                ground1.scaling = new BABYLON.Vector3(0.5, 0.1, 8);
+                ground1.scaling = new BABYLON.Vector3(1, 0.1, 8);
                 ground1.position.z = posz;
                 ground1.position.x = posx;
                 ground1.position.y = posy;
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
-                groundMat.diffuseTexture = new BABYLON.Texture("textures/stones-texture.jpg", scene);
+                groundMat.diffuseTexture = new BABYLON.Texture("textures/rosa.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
                 ground1.material = groundMat;
                 ground1.physicsImpostor = new BABYLON.PhysicsImpostor(ground1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
-                newMeshes = new BABYLON.Mesh("oi", scene);
+                newMeshes = new BABYLON.Mesh("gangorra", scene);
                 newMeshes.addChild(ground1);
             }
 
@@ -334,7 +334,7 @@
             function createPlataformaMovel(scene, posx, posy, posz, pos1z, pos1y) {
 
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
-                groundMat.diffuseTexture = new BABYLON.Texture("textures/stones-texture.jpg", scene);
+                groundMat.diffuseTexture = new BABYLON.Texture("textures/preta.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
 
                 var ground1 = BABYLON.Mesh.CreateBox("box2", 10, scene);
@@ -450,11 +450,11 @@
 
             function createGround2(scene, posx, posy, posz, pos1x, pos1y, pos1z) {
                 var ground1 = BABYLON.Mesh.CreateBox("box3", 10, scene);
-                ground1.scaling = new BABYLON.Vector3(0.5, 0.1, 7);
+                ground1.scaling = new BABYLON.Vector3(1, 0.1, 7);
 
 
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
-                groundMat.diffuseTexture = new BABYLON.Texture("textures/stones-texture.jpg", scene);
+                groundMat.diffuseTexture = new BABYLON.Texture("textures/rosa.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
                 ground1.material = groundMat;
 
@@ -464,7 +464,7 @@
 
                 ground1.physicsImpostor = new BABYLON.PhysicsImpostor(ground1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
 
-                newMeshes = new BABYLON.Mesh("oi2", scene);
+                newMeshes = new BABYLON.Mesh("gangorra2", scene);
                 newMeshes.addChild(ground1);
 
             }
@@ -597,7 +597,7 @@
 
         function up2() {
 
-            var meshes = scene.getMeshesByID("oi2");
+            var meshes = scene.getMeshesByID("gangorra2");
             meshes.forEach(function (mesh) {
                 mesh.rotation.x = -0.2;
             });
@@ -605,7 +605,7 @@
 
         function up() {
 
-            var meshes = scene.getMeshesByID("oi");
+            var meshes = scene.getMeshesByID("gangorra");
             meshes.forEach(function (mesh) {
                 mesh.rotation.x = 0.2;
             });
