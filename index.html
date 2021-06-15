@@ -99,21 +99,21 @@
             Plataforma10 = criarChao(scene, -33, -18, 9);
 
             // Estrutura final
-            Plataforma11 = criarPlataforma1(scene, -150, -7, 0, -17, 50, 0)
-            Plataforma12 = criarPlataforma2(scene, -150, -30, 35, 0, 0, 0);
-            Plataforma13 = criarPlataforma1(scene, -150, -53, 0, -17, 0, 0);
-            Plataforma14 = criarPlataforma2(scene, -150, -76, 35, 0, 0, 0);
-            Plataforma15 = criarPlataforma1(scene, -150, -99, 0, -17, 0, 0);
-            Plataforma16 = criarPlataforma2(scene, -150, -122, 35, 0, 0, 0);
+            Plataforma11 = criarPlataforma1(scene, -100, -7, 0, -17, 50, 0)
+            Plataforma12 = criarPlataforma2(scene, -100, -30, 35, 0, 0, 0);
+            Plataforma13 = criarPlataforma1(scene, -100, -53, 0, -17, 0, 0);
+            Plataforma14 = criarPlataforma2(scene, -100, -76, 35, 0, 0, 0);
+            Plataforma15 = criarPlataforma1(scene, -100, -99, 0, -17, 0, 0);
+            Plataforma16 = criarPlataforma2(scene, -100, -122, 35, 0, 0, 0);
             Plataforma17 = criarPlataformaEsqDireita(scene, -150, -31, -10, -17, -22, 2);
             Plataforma18 = criarPlataformaEsqDireita(scene, -150, -65, -10, -17, -22, 2);
 
-            function criarRotatoria (scene, x, y, z) {
+            function criarRotatoria (scene) {
                 var ground = BABYLON.Mesh.CreateBox("box1", 10, scene);
-                ground.scaling = new BABYLON.Vector3(1, 0.1, 0.5);
+                ground.scaling = new BABYLON.Vector3(2, 0.5, 0.5);
 
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
-                groundMat.diffuseTexture = new BABYLON.Texture("textures/preta.jpg", scene);
+                groundMat.diffuseTexture = new BABYLON.Texture("textures/rosa.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
                 ground.material = groundMat;
 
@@ -160,7 +160,7 @@
             function criarPlataformaEsqDireita(scene, posx, posy, posz, pos1z, pos1y, version) {
 
             const groundMat = new BABYLON.StandardMaterial("groundMat");
-            groundMat.diffuseTexture = new BABYLON.Texture("textures/preta.jpg", scene);
+            groundMat.diffuseTexture = new BABYLON.Texture("textures/azul.png", scene);
             groundMat.diffuseTexture.hasAlpha = true;
 
             var ground1 = BABYLON.Mesh.CreateBox("box2", 10, scene);
