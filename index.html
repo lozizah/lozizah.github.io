@@ -96,7 +96,7 @@
             Plataforma7 = criarPlataformaEsqDireita(scene, -7, -31, -10, -17, -22, 1);
             Plataforma8 = criarPlataformaEsqDireita(scene, -7, -65, -10, -17, -22, 1);
             Plataforma9 = criarPlataformaSobeDesce(scene, -22, -95, 11);
-            Plataforma10 = createParede(scene, -33, -18, 9);
+            Plataforma10 = criarChao(scene, -33, -18, 9);
 
             // Estrutura final
             Plataforma11 = criarPlataforma1(scene, -150, -7, 0, -17, 50, 0)
@@ -279,7 +279,7 @@
                 newMeshes.addChild(ground5);
             }
 
-            function createParede(scene, posx, posy, posz) {
+            function criarChao(scene, posx, posy, posz) {
                 var wall = BABYLON.Mesh.CreateBox("box2", 10, scene);
                 wall.scaling = new BABYLON.Vector3(25, 0.1, 20);
                 wall.position.x = posx - 25;
