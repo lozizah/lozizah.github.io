@@ -80,6 +80,8 @@
             Plataforma2 = createGround2(scene, 0, -30, 35, 0, 0, 0);
             Plataforma3 = createGround1(scene, 0, -53, 0, -17, 0, 0);
             Plataforma4 = createGround2(scene, 0, -76, 35, 0, 0, 0);
+            Plataforma5 = createGround1(scene, 0, -99, 0, -17, 0, 0);
+            Plataforma6 = createGround2(scene, 0, -122, 35, 0, 0, 0);
 
             Plataforma5 = createPlataformaMovel(scene, -7, -31, -10, -17, -22);
             Plataforma6 = createPlataformaMovel(scene, -7, -65, -10, -17, -22);
@@ -109,7 +111,7 @@
                 ground1.position.x = posx;
                 ground1.position.y = posy;
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
-                groundMat.diffuseTexture = new BABYLON.Texture("textures/rosa.jpg", scene);
+                groundMat.diffuseTexture = new BABYLON.Texture("textures/preta.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
                 ground1.material = groundMat;
                 ground1.physicsImpostor = new BABYLON.PhysicsImpostor(ground1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
@@ -123,7 +125,7 @@
 
 
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
-                groundMat.diffuseTexture = new BABYLON.Texture("textures/rosa.jpg", scene);
+                groundMat.diffuseTexture = new BABYLON.Texture("textures/preta.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
                 ground1.material = groundMat;
 
@@ -176,8 +178,10 @@
             }
 
             function createElevetor(scene, x, y, z) {
+
                 var ground = BABYLON.Mesh.CreateBox("box1", 10, scene);
                 ground.scaling = new BABYLON.Vector3(2, 0.1, 3);
+
                 var ground2 = BABYLON.Mesh.CreateBox("box2", 10, scene);
                 ground2.scaling = new BABYLON.Vector3(0.1, 0.1, 3);
 
@@ -192,14 +196,13 @@
 
 
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
-                groundMat.diffuseTexture = new BABYLON.Texture("textures/wood.jpg", scene);
+                groundMat.diffuseTexture = new BABYLON.Texture("textures/preta.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
                 ground.material = groundMat;
 
-                ground.position.z = z;
                 ground.position.x = x;
                 ground.position.y = y;
-
+                ground.position.z = z;
 
                 ground2.position.x = x - 9.5;
                 ground2.position.y = y + 0.5;
@@ -238,15 +241,15 @@
 
             function createParede(scene, posx, posy, posz) {
                 var wall = BABYLON.Mesh.CreateBox("box2", 10, scene);
-                wall.scaling = new BABYLON.Vector3(0.1, 1.5, 5);
-                wall.position.x = posx;
-                wall.position.y = posy;
+                wall.scaling = new BABYLON.Vector3(25, 0.1, 20);
+                wall.position.x = posx - 25;
+                wall.position.y = posy - 150;
                 wall.position.z = posz;
 
                 wall.physicsImpostor = new BABYLON.PhysicsImpostor(wall, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
 
                 const wallMat = new BABYLON.StandardMaterial("wallMat");
-                wallMat.diffuseTexture = new BABYLON.Texture("textures/stones-texture.jpg", scene);
+                wallMat.diffuseTexture = new BABYLON.Texture("textures/rosa.jpg", scene);
                 wallMat.diffuseTexture.hasAlpha = true;
                 wall.material = wallMat;
 
