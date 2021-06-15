@@ -193,10 +193,7 @@
                 newMeshes.addChild(ground3);
                 newMeshes.addChild(ground5);
 
-            } 
-            
-            else 
-                {
+            } else {
                     ground3.scaling = new BABYLON.Vector3(2, 0.1, 0.1);
                     ground3.position.z = posz + 5;
                     ground3.position.y = posy - 8;
@@ -209,12 +206,12 @@
                     ground5.position.y = posy - 8;
                     ground5.position.x = -119.5;
                     ground5.physicsImpostor = new BABYLON.PhysicsImpostor(ground5, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
-                ground5.material = groundMat;
+                    ground5.material = groundMat;
                     newMeshes = new BABYLON.Mesh("plataforma2", scene);
                     newMeshes.addChild(ground1);
                     newMeshes.addChild(ground3);
                     newMeshes.addChild(ground5);
-                 }
+                }
             }
 
             function criarPlataformaSobeDesce(scene, x, y, z) {
@@ -298,24 +295,24 @@
         };
 
         function upTube() {
-            var meshes = scene.getMeshesByID("tubo");
-            meshes.forEach(function (mesh) {
+            var meshePlataforma = scene.getMeshesByID("tubo");
+            meshePlataforma.forEach(function (mesh) {
                 mesh.rotation.z = 1.5;
             });
         };
 
 
         function up3() {
-            var meshes = scene.getMeshesByID("torus");
-            meshes.forEach(function (mesh) {
+            var meshePlataforma = scene.getMeshesByID("torus");
+            meshePlataforma.forEach(function (mesh) {
                 mesh.rotation.z -= 0.1;
             });
         };
         
         function up_viradinho1() {
-            var meshes = scene.getMeshesByID("plat2");
+            var meshePlataforma = scene.getMeshesByID("plat2");
             ajuda = 0.1;
-            meshes.forEach(function (mesh) {
+            meshePlataforma.forEach(function (mesh) {
                 if (mesh.position.x <= -63) {
                     mesh.position.x += 0.15;
                 } else {
@@ -325,18 +322,18 @@
             });
         };
 
-        function up_viradinho() {
-            var meshes = scene.getMeshesByID("plataforma");
-            var meshes2 = scene.getMeshesByID("plataforma2");
+        function plataformaEsqDireita() {
+            var meshePlataforma = scene.getMeshesByID("plataforma");
+            var meshePlataforma2 = scene.getMeshesByID("plataforma2");
 
-            meshes.forEach(function (mesh) {
+            meshePlataforma.forEach(function (mesh) {
                 if (mesh.position.x >= -42) {
                     mesh.position.x -= 0.2;
                 } else {
                     mesh.position.x = 0;
                 }
             });
-            meshes2.forEach(function (mesh) {
+            meshePlataforma2.forEach(function (mesh) {
                 if (mesh.position.x <= 18) {
                     mesh.position.x += 0.2;
                 } else {
@@ -345,7 +342,7 @@
             });
         };
 
-        function up_elevetorEsquerda() {
+        function elevadorParaEsquerda() {
 
             var meshes = scene.getMeshesByID("ElevadorEsquerda");
             // ajuda = 0.10;
@@ -370,21 +367,19 @@
 
         };
 
-        function up_elevetor() {
+        function elevadorParaCima() {
 
             var meshes = scene.getMeshesByID("Elevador");
-            // ajuda = 0.10;
-            // ajuda1 = 0.1;
-            ajuda = 0.20;
-            ajuda1 = 0.2;
+            aux = 0.20;
+            aux2 = 0.2;
             meshes.forEach(function (mesh) {
 
                 if (mesh.position.y <= 100) {
-                    mesh.position.y += ajuda;
+                    mesh.position.y += aux;
 
                 } else if (mesh.position.y <= 126) {
                     if (mesh.position.x >= -60) {
-                        mesh.position.x -= ajuda1;
+                        mesh.position.x -= aux2;
                     } else {
                         mesh.position.x = -1;
                         mesh.position.y = -75;
@@ -395,7 +390,7 @@
 
         };
 
-        function up2() {
+        function detalhePlataformaEsquerda() {
 
             var meshes = scene.getMeshesByID("gangorra2");
             meshes.forEach(function (mesh) {
@@ -403,7 +398,7 @@
             });
         };
 
-        function up() {
+        function detalhePlataformaDireita() {
 
             var meshes = scene.getMeshesByID("gangorra");
             meshes.forEach(function (mesh) {
@@ -418,7 +413,6 @@
                     createBall()
                 }
             i++
-
             var meshes = scene.getMeshesByID("Grupo");
             meshes.forEach(function (mesh) {
                 mesh.rotation.x -= 0.07;
@@ -430,12 +424,10 @@
             whiteColor = new BABYLON.StandardMaterial('whiteColor', scene);
             whiteColor.diffuseColor = new BABYLON.Color3(0, 1, 1);
             sphere.material = whiteColor;
-
             sphere.position.y = 10;
             sphere.position.z = 0;
-
             sphere.physicsImpostor = new BABYLON.PhysicsImpostor(sphere, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 1, restitution: 0.3 }, scene);
-            testandoMesh = new BABYLON.Mesh("Esfera", scene);
+            testandoMesh = new BABYLON.Mesh("Bola", scene);
             testandoMesh.addChild(sphere);
         }
 
@@ -445,61 +437,13 @@
 
         engine.runRenderLoop(function () {
             if (scene) {
-                upTube();
-                scene.render();
-            }
-        });
-
-        engine.runRenderLoop(function () {
-            if (scene) {
-                up3();
-                scene.render();
-            }
-        });
-        engine.runRenderLoop(function () {
-            if (scene) {
-                up_elevetorEsquerda();
-                scene.render();
-            }
-        });
-
-        engine.runRenderLoop(function () {
-            if (scene) {
-                up_elevetor();
-                scene.render();
-            }
-        });
-        engine.runRenderLoop(function () {
-            if (scene) {
-                up_viradinho();
-                scene.render();
-            }
-        });
-        engine.runRenderLoop(function () {
-            if (scene) {
-                up_viradinho1();
-                scene.render();
-            }
-        });
-
-        engine.runRenderLoop(function () {
-            if (scene) {
-                up2();
-                scene.render();
-            }
-        });
-        engine.runRenderLoop(function () {
-            if (scene) {
-                up();
-                scene.render();
-            }
-        });
-
-        engine.runRenderLoop(function () {
-            if (scene) {
+                detalhePlataformaDireita();
+                detalhePlataformaEsquerda();
+                elevadorParaCima();
+                elevadorParaEsquerda()
+                plataformaEsqDireita()
                 loop();
                 scene.render();
-
             }
         });
 
@@ -526,7 +470,6 @@
                 }
             });
         });
-        // Resize
         window.addEventListener("resize", function () {
             engine.resize();
         });
