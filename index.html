@@ -61,7 +61,7 @@
             scene.environmentTexture = hdrTexture;
 
             //Camera
-            var camera = new BABYLON.ArcRotateCamera("Camera", BABYLON.Tools.ToRadians(0), BABYLON.Tools.ToRadians(60), 105, new BABYLON.Vector3(0, -15, 0), scene); camera.attachControl(canvas, false);
+            var camera = new BABYLON.ArcRotateCamera("Camera", BABYLON.Tools.ToRadians(0), BABYLON.Tools.ToRadians(60), 180, new BABYLON.Vector3(0, -15, 0), scene); camera.attachControl(canvas, false);
 
 
             //setup lights
@@ -193,7 +193,10 @@
                 newMeshes.addChild(ground3);
                 newMeshes.addChild(ground5);
 
-            } else {
+            } 
+
+            else 
+                {
                     ground3.scaling = new BABYLON.Vector3(2, 0.1, 0.1);
                     ground3.position.z = posz + 5;
                     ground3.position.y = posy - 8;
@@ -233,7 +236,7 @@
 
 
                 const groundMat = new BABYLON.StandardMaterial("groundMat");
-                groundMat.diffuseTexture = new BABYLON.Texture("textures/preta.jpg", scene);
+                groundMat.diffuseTexture = new BABYLON.Texture("textures/branca.jpg", scene);
                 groundMat.diffuseTexture.hasAlpha = true;
                 ground.material = groundMat;
 
@@ -268,7 +271,7 @@
                 ground4.physicsImpostor = new BABYLON.PhysicsImpostor(ground4, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
                 ground5.physicsImpostor = new BABYLON.PhysicsImpostor(ground5, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
 
-                newMeshes = new BABYLON.Mesh("Elevador", scene);
+                newMeshes = new BABYLON.Mesh("Cima", scene);
                 newMeshes.addChild(ground);
                 newMeshes.addChild(ground2);
                 newMeshes.addChild(ground3);
@@ -294,70 +297,52 @@
             return scene;
         };
 
-        function upTube() {
-            var meshePlataforma = scene.getMeshesByID("tubo");
-            meshePlataforma.forEach(function (mesh) {
-                mesh.rotation.z = 1.5;
-            });
-        };
-
-
-        function up3() {
-            var meshePlataforma = scene.getMeshesByID("torus");
-            meshePlataforma.forEach(function (mesh) {
-                mesh.rotation.z -= 0.1;
-            });
-        };
-        
-        function up_viradinho1() {
-            var meshePlataforma = scene.getMeshesByID("plat2");
-            ajuda = 0.1;
-            meshePlataforma.forEach(function (mesh) {
-                if (mesh.position.x <= -63) {
-                    mesh.position.x += 0.15;
-                } else {
-                    mesh.position.x = -100;
-
-                }
-            });
-        };
-
         function plataformaEsqDireita() {
             var meshePlataforma = scene.getMeshesByID("plataforma");
             var meshePlataforma2 = scene.getMeshesByID("plataforma2");
 
             meshePlataforma.forEach(function (mesh) {
-                if (mesh.position.x >= -42) {
+                if (mesh.position.x >= -42) 
+                {
                     mesh.position.x -= 0.2;
-                } else {
+                } 
+                else 
+                {
                     mesh.position.x = 0;
                 }
             });
             meshePlataforma2.forEach(function (mesh) {
-                if (mesh.position.x <= 18) {
+                if (mesh.position.x <= 18) 
+                {
                     mesh.position.x += 0.2;
-                } else {
+                } 
+                else 
+                {
                     mesh.position.x = 0;
                 }
             });
         };
 
-        function elevadorParaEsquerda() {
+        function Esquerda() {
 
-            var meshes = scene.getMeshesByID("ElevadorEsquerda");
-            // ajuda = 0.10;
-            // ajuda1 = 0.1;
-            ajuda = 0.50;
-            ajuda1 = 0.2;
+            var meshes = scene.getMeshesByID("ParaEsquerda");
+            mover = 0.50;
+            mover2 = 0.2;
             meshes.forEach(function (mesh) {
 
-                if (mesh.position.y <= 110) {
+                if (mesh.position.y <= 110) 
+                {
                     mesh.position.y += ajuda;
 
-                } else if (mesh.position.y <= 126) {
-                    if (mesh.position.x <= 48) {
-                        mesh.position.x += ajuda1;
-                    } else {
+                } 
+                else if (mesh.position.y <= 126) 
+                {
+                    if (mesh.position.x <= 48) 
+                    {
+                        mesh.position.x += mover2;
+                    } 
+                    else 
+                    {
                         mesh.position.x = -1;
                         mesh.position.y = -75;
                         mesh.position.z = 3;
@@ -367,20 +352,25 @@
 
         };
 
-        function elevadorParaCima() {
+        function Cima() {
 
-            var meshes = scene.getMeshesByID("Elevador");
+            var meshes = scene.getMeshesByID("Cima");
             aux = 0.20;
             aux2 = 0.2;
             meshes.forEach(function (mesh) {
 
-                if (mesh.position.y <= 100) {
+                if (mesh.position.y <= 100) 
+                {
                     mesh.position.y += aux;
 
-                } else if (mesh.position.y <= 126) {
-                    if (mesh.position.x >= -60) {
+                } 
+                else if (mesh.position.y <= 126)
+                 {
+                    if (mesh.position.x >= -60) 
+                    {
                         mesh.position.x -= aux2;
-                    } else {
+                    } 
+                    else {
                         mesh.position.x = -1;
                         mesh.position.y = -75;
                         mesh.position.z = 3;
@@ -409,8 +399,9 @@
         var i = 0
 
         function loop() {
-            if (i % 30 == 0 || i == 0) {
-                    createBall()
+            if (i % 30 == 0 || i == 0) 
+                {
+                    criarBolas()
                 }
             i++
             var meshes = scene.getMeshesByID("Grupo");
@@ -419,7 +410,7 @@
             });
         };
 
-        function createBall() {
+        function criarBolas() {
             var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
             whiteColor = new BABYLON.StandardMaterial('whiteColor', scene);
             whiteColor.diffuseColor = new BABYLON.Color3(0, 1, 1);
@@ -439,8 +430,8 @@
             if (scene) {
                 detalhePlataformaDireita();
                 detalhePlataformaEsquerda();
-                elevadorParaCima();
-                elevadorParaEsquerda()
+                Cima();
+                Esquerda()
                 plataformaEsqDireita()
                 loop();
                 scene.render();
